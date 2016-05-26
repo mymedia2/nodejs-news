@@ -1,27 +1,21 @@
 var db = require("./db");
 
 export async function list(ctx) {
-	await db.ArticleModel.find(function(err, articles) {
-		if (err) {
-			console.log("Err: ", err.message);
-			return;
-		}
-		ctx.body = JSON.stringify(articles, "", 4);
-	});
+	ctx.body = await db.ArticleModel.find();
 }
 
 export function post(ctx) {
-	ctx.body = "Not implemented";
+	ctx.status = 501;
 }
 
 export function get(ctx, next) {
-	ctx.body = "Not implemented";
+	ctx.status = 501;
 }
 
 export function update(ctx) {
-	ctx.body = "Not implemented";
+	ctx.status = 501;
 }
 
 export function delete_(ctx) {
-	ctx.body = "Not implemented";
+	ctx.status = 501;
 }

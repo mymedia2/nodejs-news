@@ -1,6 +1,7 @@
 var mongoose = require("mongoose");
+var config = require("./config");
 
-mongoose.connect("mongodb://localhost/news");
+mongoose.connect(config.get("db:uri"));
 
 mongoose.connection.on("error", err => console.log("Db error: ", err.message));
 mongoose.connection.once("open", () => console.log("Connected to db"));

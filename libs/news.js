@@ -3,6 +3,7 @@ var router = require("koa-router")();
 var bodyParser = require("koa-bodyparser");
 var jsonFormater = require("koa-json");
 var articles = require("./articles");
+var config = require("./config");
 
 router
 	.get("/articles", articles.list)
@@ -14,7 +15,7 @@ router
 
 app
 	.use(bodyParser())
-	.use(jsonFormater({ pretty: false, param: "debug" }))
+	.use(jsonFormater({ pretty: config.get("prettyJSON"), param: "debug" }))
 	.use(router.routes())
-	.listen(8080)
+	.listen(config.get("port"))
 ;

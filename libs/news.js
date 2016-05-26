@@ -1,5 +1,7 @@
 var app = new (require("koa"))();
 var router = require("koa-router")();
+var bodyParser = require("koa-bodyparser");
+var jsonFormater = require("koa-json");
 var articles = require("./articles");
 
 router
@@ -11,6 +13,8 @@ router
 ;
 
 app
+	.use(bodyParser())
+	.use(jsonFormater({ pretty: false, param: "debug" }))
 	.use(router.routes())
 	.listen(8080)
 ;

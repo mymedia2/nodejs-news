@@ -5,10 +5,10 @@ export async function list(ctx) {
 }
 
 export function post(ctx) {
-	ctx.status = 501;
+	ctx.body = ctx.request.body;
 }
 
-export function get(ctx, next) {
+export function get(ctx) {
 	ctx.status = 501;
 }
 

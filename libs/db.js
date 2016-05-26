@@ -13,9 +13,10 @@ var User = new mongoose.Schema({
 var Article = new mongoose.Schema({
 	title: { type: String, required: true },
 	author: { type: String, required: true },
-	body: { type: String, required: true },
-	created: { type: Date, default: Date.now },
-	modified: { type: Date }
+	text: { type: String, required: true },
+	createdAt: { type: Date, default: Date.now },
+	modifiedAt: { type: Date, default: Date.now },
+	modifiedCounter: { type: Number, default: Number }
 });
 
 export var ArticleModel = mongoose.model("Article", Article);

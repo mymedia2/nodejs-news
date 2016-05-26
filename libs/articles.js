@@ -4,8 +4,14 @@ export async function list(ctx) {
 	ctx.body = await db.ArticleModel.find();
 }
 
-export function post(ctx) {
-	ctx.body = ctx.request.body;
+export async function post(ctx) {
+	var article = new db.ArticleModel({
+		title: ctx.request.body.title,
+		author: "admin",
+		text: ctx.request.body.text
+	});
+	await article.save();
+	ctx.status = 200;
 }
 
 export function get(ctx) {

@@ -1,16 +1,24 @@
 {
   "name": "news",
   "version": "0.1.0",
-  "description": "",
+  "description": "My first student Node.js project",
   "main": "index.js",
+  "author": "Nicholas Guriev",
+  "license": "MIT",
+  "homepage": "https://github.com/mymedia2/nodejs-news",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mymedia2/nodejs-news"
+  },
+  "bugs": {
+    "url": "https://github.com/mymedia2/nodejs-news/issues"
+  },
   "scripts": {
     "build": "gulp build",
     "lint": "gulp lint",
     "test": "gulp test",
     "watch": "gulp watch"
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "babel": "^6.5.2",
     "babel-eslint": "^6.0.0",

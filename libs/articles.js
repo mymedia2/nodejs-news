@@ -23,15 +23,22 @@ export async function post(ctx) {
 	ctx.status = 201;
 }
 
-export function get(ctx) {
-	ctx.status = 501;
+export async function get(ctx) {
+	var result = await db.ArticleModel.findById(ctx.params.id);
+	ctx.assert(result, 404);
+	ctx.body = result;
 }
 
-export function update(ctx) {
-	ctx.status = 501;
+export async function update(ctx) {
+	var result = await db.ArticleModel.findByIdAndUpdate(ctx.params.id,
+	                                                     ctx.request.body);
+	ctx.assert(result, 404);
+	ctx.body = result;
 }
 
 export async function delete_(ctx) {
-	await db.ArticleModel.findByIdAndUpdate(ctx.params.id, { invisible: true });
+	var result = await db.ArticleModel.findByIdAndUpdate(ctx.params.id,
+	                                                     { invisible: true });
+	ctx.assert(result, 404);
 	ctx.status = 200;
 }

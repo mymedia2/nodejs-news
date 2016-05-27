@@ -4,6 +4,9 @@ var bodyParser = require("koa-bodyparser");
 var jsonFormater = require("koa-json");
 var articles = require("./articles");
 var config = require("./config");
+var hacks = require("./hacks");
+
+hacks.fixKoaContext(app.context);
 
 router
 	.get("/articles", articles.list)

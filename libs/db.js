@@ -18,7 +18,14 @@ var Article = new mongoose.Schema({
 	createdAt: { type: Date, default: Date.now },
 	modifiedAt: { type: Date, default: Date.now },
 	modifiedCounter: { type: Number, default: 0 },
-	invisible: { type: Boolean, default: false }
+	invisible: {type: Boolean, default: false }
+});
+Article.set("toJSON", {
+	transform: function(doc, ret, options) {
+		ret.id = ret._id;
+		delete ret._id;
+		delete ret.__v;
+	}
 });
 
 export var ArticleModel = mongoose.model("Article", Article);

@@ -2,21 +2,22 @@ var db = require("./db");
 
 export async function list(ctx) {
 	ctx
-		.defaultArgs({ showAll: false, skip: 0, limit: 10 })
+		.defaultArgs({ show_all: false, skip: 0, limit: 10 })
+		.assert(!ctx.args.show_all || ctx.user, 403)
 		.assert(ctx.args.skip >= 0, 400, "Parameter skip must be non-negative")
 		.assert(ctx.args.limit >= 0, 400, "Parameter limit must be non-negative")
 	;
-	var condition = ctx.args.showAll ? new Object() : { invisible: false };
+	var condition = ctx.args.show_all ? new Object() : { invisible: false };
 	var result = await db.ArticleModel
 		.find(condition)
 		.select("id title author text createdAt modifiedAt modifiedCounter"
-		        + (ctx.args.showAll ? " invisible" : ""))
+		        + (ctx.args.show_all ? " invisible" : ""))
 		.sort("-createdAt")
 		.skip(ctx.args.skip)
 		.limit(ctx.args.limit)
 	;
 	ctx.body = {
-		skip: ctx.args.skip,
+		skiped: ctx.args.skip,
 		total: await db.ArticleModel.count(condition),
 		articles: result
 	};
@@ -24,12 +25,13 @@ export async function list(ctx) {
 
 export async function post(ctx) {
 	ctx
+		.assert(ctx.user, 403)
 		.assert(ctx.args.title, 400, "Field title is required")
 		.assert(ctx.args.text, 400, "Field text is required")
 	;
 	var article = new db.ArticleModel({
 		title: ctx.args.title,
-		author: "admin",
+		author: ctx.user.login,
 		text: ctx.args.text
 	});
 	var result = await article.save();
@@ -39,19 +41,19 @@ export async function post(ctx) {
 
 export async function get(ctx) {
 	try {
-		ctx.body = await db.ArticleModel.findById(ctx.args.id)
-		;
+		ctx.body = await db.ArticleModel.findById(ctx.args.id);
 	} catch (CastError) {
 		ctx.throw(404);
 	}
 	ctx
 		.assert(ctx.body, 404)
-		.assert(ctx.body.invisible == false, 404)
+		.assert(!ctx.body.invisible || user, 404)
 	;
 }
 
 export async function update(ctx) {
 	ctx
+		.assert(ctx.user, 403)
 		.assert(ctx.args.id, 400, "Field id is required")
 		.assert(ctx.args.title != "", 400, "Field title cant be empty")
 	;
@@ -68,10 +70,14 @@ export async function update(ctx) {
 		ctx.throw(404);
 	}
 	ctx.assert(ctx.body, 404);
+	Object.assign(ctx.body, updater);
 }
 
 export async function delete_(ctx) {
-	ctx.assert(ctx.args.id, 400, "Field id is required");
+	ctx
+		.assert(ctx.user, 403)
+		.assert(ctx.args.id, 400, "Field id is required")
+	;
 	try {
 		var result = await db.ArticleModel.findByIdAndUpdate(ctx.args.id, { invisible: true });
 	} catch (CastError) {

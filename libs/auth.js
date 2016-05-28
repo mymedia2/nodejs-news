@@ -3,7 +3,12 @@ var db = require("./db");
 
 export function bearer() {
 	return async function(ctx, next) {
-		ctx.user = await db.UserModel.findOne({ token: ctx.request.header.bearer });
+		if (ctx.request.header.bearer) {
+			ctx.user = await db.UserModel.findOne({ token: ctx.request.header.bearer });
+			if (!ctx.user) {
+				ctx.throw(403, "Invalid token");
+			}
+		}
 		await next();
 	};
 }

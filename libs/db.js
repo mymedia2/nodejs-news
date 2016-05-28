@@ -8,8 +8,13 @@ mongoose.connection.once("open", () => console.log("Connected to db"));
 
 var User = new mongoose.Schema({
 	login: { type: String, required: true, unique: true },
-	passw: { type: String, required: true }
+	passw: { type: String, required: true },
+	token: String
 });
+User.methods.checkPassword = function(passw) {
+	return this.passw == passw;
+};
+export var UserModel = mongoose.model("User", User);
 
 var Article = new mongoose.Schema({
 	title: { type: String, required: true },
@@ -18,7 +23,7 @@ var Article = new mongoose.Schema({
 	createdAt: { type: Date, default: Date.now },
 	modifiedAt: { type: Date, default: Date.now },
 	modifiedCounter: { type: Number, default: 0 },
-	invisible: {type: Boolean, default: false }
+	invisible: { type: Boolean, default: false }
 });
 Article.set("toJSON", {
 	transform: function(doc, ret, options) {
@@ -27,5 +32,4 @@ Article.set("toJSON", {
 		delete ret.__v;
 	}
 });
-
 export var ArticleModel = mongoose.model("Article", Article);

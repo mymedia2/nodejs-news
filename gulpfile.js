@@ -33,9 +33,10 @@ gulp.task("build-tests", function() {
 });
 
 gulp.task("test", ["libs", "build-tests"], function() {
+	var options = process.env.MOCHA_REPORTER != "disable" ? { reporter: "nyan" } : new Object();
 	process.env.NODE_ENV = "test";
 	return gulp.src("build/test/**/*.js", { read: false })
-		.pipe(mocha({ reporter: "nyan" }))
+		.pipe(mocha(options))
 		.once("end", process.exit)
 	;
 });

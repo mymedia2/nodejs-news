@@ -8,9 +8,6 @@ var User = new mongoose.Schema({
 	passw: { type: String, required: true },
 	token: String
 });
-User.methods.checkPassword = function(passw) {
-	return this.passw == passw;
-};
 export var UserModel = mongoose.model("User", User);
 
 var Article = new mongoose.Schema({

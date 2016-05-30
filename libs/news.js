@@ -1,15 +1,14 @@
-var app = new (require("koa"))();
-var router = require("koa-router")();
+var Koa = require("koa");
+var Router = require("koa-router");
 var bodyParser = require("koa-bodyparser");
 var jsonFormater = require("koa-json");
+var logger = require("koa-logger");
 var articles = require("./articles");
 var auth = require("./auth");
 var config = require("./config");
 var hacks = require("./hacks");
 
-hacks.fixKoaContext(app.context);
-
-router
+var router = new Router()
 	.get("/articles", articles.list)
 	.post("/articles", articles.post)
 	.get("/articles/:id", articles.get)
@@ -18,10 +17,13 @@ router
 	.post("/authorization", auth.getToken)
 ;
 
-app
+var app = new Koa()
+	.use(logger())
 	.use(bodyParser())
 	.use(auth.bearer())
 	.use(jsonFormater({ pretty: config.get("prettyJSON"), param: "debug" }))
 	.use(router.routes())
-	.listen(config.get("port"))
 ;
+
+hacks.fixKoaContext(app.context);	// TODO: make it as midleware
+app.listen(config.get("port"));

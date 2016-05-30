@@ -36,6 +36,7 @@
     "koa": "^2.0.0",
     "koa-bodyparser": "^3.1.0",
     "koa-json": "^2.0.2",
+    "koa-logger": "^2.0.0",
     "koa-router": "^7.0.1",
     "mongoose": "^4.4.19",
     "nconf": "^0.8.4",

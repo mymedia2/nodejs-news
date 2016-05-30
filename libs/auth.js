@@ -20,7 +20,7 @@ export async function getToken(ctx) {
 		.assert(ctx.args.password, 400, "Password is required")
 	;
 	var user = await db.UserModel.findOne({ login: ctx.args.username });
-	if (!user || !user.checkPassword(ctx.args.password)) {
+	if (!user || !user.passw != ctx.args.password) {
 		ctx.throw(403, "Not found user or invalid password");
 	}
 	if (!user.token) {

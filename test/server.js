@@ -6,7 +6,7 @@ describe("Server API", () => {
 	before(async () => {
 		var config = require("../libs/config");
 		var app = require("../libs/news.js");
-		request = request("http://localhost:" + config.get("port"));
+		request = await request("http://localhost:" + config.get("port"));
 		var db = await require("mongodb").MongoClient.connect(config.get("db:uri"));
 		await db.collection("articles").remove();
 		await db.collection("articles").insertMany(testData.articles.map(el => Object.assign(new Object(), el)));

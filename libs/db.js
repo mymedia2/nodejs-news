@@ -3,9 +3,6 @@ var config = require("./config");
 
 mongoose.connect(config.get("db:uri"));
 
-mongoose.connection.on("error", err => console.log("Db error: ", err.message));
-mongoose.connection.once("open", () => console.log("Connected to db"));
-
 var User = new mongoose.Schema({
 	login: { type: String, required: true, unique: true },
 	passw: { type: String, required: true },

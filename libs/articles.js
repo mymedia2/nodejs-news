@@ -8,7 +8,7 @@ export async function list(ctx) {
 		.assert(ctx.args.limit >= 0, 400, "Parameter limit must be non-negative")
 	;
 	var condition = ctx.args.show_all ? new Object() : { invisible: false };
-	var result = await db.ArticleModel
+	var result = ctx.args.limit == 0 ? new Array() : await db.ArticleModel
 		.find(condition)
 		.select("id title author text createdAt modifiedAt modifiedCounter"
 		        + (ctx.args.show_all ? " invisible" : ""))
@@ -17,7 +17,7 @@ export async function list(ctx) {
 		.limit(ctx.args.limit)
 	;
 	ctx.body = {
-		skiped: ctx.args.skip,
+		skiped: Number(ctx.args.skip),
 		total: await db.ArticleModel.count(condition),
 		articles: result
 	};

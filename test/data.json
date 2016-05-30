@@ -1,0 +1,225 @@
+{
+	"users": [],
+	"articles": [
+		{
+			"title": "Глонасс",
+			"author": "lenta",
+			"text": "Российский спутник «Глонасс-М» успешно выведен на расчетную орбиту",
+			"_id": "7e371d000000000000000001",
+			"invisible": false,
+			"createdAt": "2016-05-29T15:50:01.396Z",
+			"modifiedAt": "2016-05-29T15:50:01.396Z",
+			"modifiedCounter": 0,
+			"__v": 0
+		},
+		{
+			"title": "Test",
+			"author": "admin",
+			"text": "This is simple test",
+			"_id": "7e371d000000000000000002",
+			"invisible": true,
+			"createdAt": "2016-05-27T13:18:47.038Z",
+			"modifiedAt": "2016-05-27T13:18:47.038Z",
+			"modifiedCounter": 0,
+			"__v": 0
+		},
+		{
+			"title": "Оружие",
+			"author": "lenta",
+			"text": "Опубликовано видео испытаний нового американского оружия для сдерживания России",
+			"_id": "7e371d000000000000000003",
+			"invisible": true,
+			"createdAt": "2016-05-29T12:40:47.540Z",
+			"modifiedAt": "2016-05-29T12:40:47.540Z",
+			"modifiedCounter": 0,
+			"__v": 0
+		},
+		{
+			"title": "Рекламная кампания",
+			"author": "lenta",
+			"text": "Альфа-банк пожелал клиентам «всего доброго» и держаться",
+			"_id": "7e371d000000000000000004",
+			"invisible": false,
+			"createdAt": "2016-05-26T17:16:27.872Z",
+			"modifiedAt": "2016-05-26T17:16:27.872Z",
+			"modifiedCounter": 0,
+			"__v": 0
+		},
+		{
+			"title": "NeDB",
+			"author": "habrahabr",
+			"text": "Аналог SQLite для NodeJS",
+			"_id": "7e371d000000000000000005",
+			"invisible": false,
+			"createdAt": "2016-05-27T11:59:07.641Z",
+			"modifiedAt": "2016-05-27T11:59:07.641Z",
+			"modifiedCounter": 0,
+			"__v": 0
+		},
+		{
+			"title": "Snakeskin",
+			"author": "habrahabr",
+			"text": "Язык описания шаблонов Snakeskin",
+			"_id": "7e371d000000000000000006",
+			"invisible": false,
+			"createdAt": "2016-05-24T19:25:57.602Z",
+			"modifiedAt": "2016-05-24T19:25:57.602Z",
+			"modifiedCounter": 0,
+			"__v": 0
+		},
+		{
+			"title": "JavaScript",
+			"author": "habrahabr",
+			"text": "JavaScript-only: гомогенная архитектура веб-проектов",
+			"_id": "7e371d000000000000000007",
+			"invisible": false,
+			"createdAt": "2016-05-24T16:48:37.132Z",
+			"modifiedAt": "2016-05-24T16:48:37.132Z",
+			"modifiedCounter": 0,
+			"__v": 0
+		},
+		{
+			"title": "jQuery",
+			"author": "habrahabr",
+			"text": "Релиз jQuery 3.0 Release Candidate",
+			"_id": "7e371d000000000000000008",
+			"invisible": false,
+			"createdAt": "2016-05-23T16:30:25.890Z",
+			"modifiedAt": "2016-05-23T16:30:25.890Z",
+			"modifiedCounter": 0,
+			"__v": 0
+		},
+		{
+			"title": "IT-KOT",
+			"author": "vk",
+			"text": "В Киевском метро хакеры взломали телевизоры в вагонах и разместили на них снимки котов",
+			"_id": "7e371d000000000000000009",
+			"invisible": false,
+			"createdAt": "2016-05-28T20:45:55.702Z",
+			"modifiedAt": "2016-05-28T20:45:55.702Z",
+			"modifiedCounter": 0,
+			"__v": 0
+		},
+		{
+			"title": "Windows Anniversary",
+			"author": "yandex",
+			"text": "Стал известен номер, под которым будет распространяться обновление Redstone, официально именуемое Windows Anniversary Update. Близкие к Microsoft источники подтверждают, что это, как и предполагалось, будет версия 1607, в которой первые две цифры обозначают год выпуска, а вторые две – месяц.",
+			"_id": "7e371d000000000000000010",
+			"invisible": false,
+			"createdAt": "2016-05-29T16:20:38.889Z",
+			"modifiedAt": "2016-05-29T16:20:38.889Z",
+			"modifiedCounter": 0,
+			"__v": 0
+		},
+		{
+			"title": "Дубль Глонасс",
+			"author": "lenta",
+			"text": "Российский спутник «Глонасс-М» успешно выведен на расчетную орбиту",
+			"_id": "7e371d000000000000000011",
+			"invisible": false,
+			"createdAt": "2016-05-29T15:50:01.397Z",
+			"modifiedAt": "2016-05-29T15:50:01.397Z",
+			"modifiedCounter": 0,
+			"__v": 0
+		},
+		{
+			"title": "Double Test",
+			"author": "admin",
+			"text": "This is simple test",
+			"_id": "7e371d000000000000000012",
+			"invisible": true,
+			"createdAt": "2016-05-27T13:18:47.037Z",
+			"modifiedAt": "2016-05-27T13:18:47.037Z",
+			"modifiedCounter": 0,
+			"__v": 0
+		},
+		{
+			"title": "Дубль Оружие",
+			"author": "lenta",
+			"text": "Опубликовано видео испытаний нового американского оружия для сдерживания России",
+			"_id": "7e371d000000000000000013",
+			"invisible": true,
+			"createdAt": "2016-05-29T12:40:47.539Z",
+			"modifiedAt": "2016-05-29T12:40:47.539Z",
+			"modifiedCounter": 0,
+			"__v": 0
+		},
+		{
+			"title": "Дубль Рекламная кампания",
+			"author": "lenta",
+			"text": "Альфа-банк пожелал клиентам «всего доброго» и держаться",
+			"_id": "7e371d000000000000000014",
+			"invisible": false,
+			"createdAt": "2016-05-29T12:40:47.540Z",
+			"modifiedAt": "2016-05-29T12:40:47.540Z",
+			"modifiedCounter": 0,
+			"__v": 0
+		},
+		{
+			"title": "Дубль NeDB",
+			"author": "habrahabr",
+			"text": "Аналог SQLite для NodeJS",
+			"_id": "7e371d000000000000000015",
+			"invisible": false,
+			"createdAt": "2016-05-27T11:59:07.642Z",
+			"modifiedAt": "2016-05-27T11:59:07.642Z",
+			"modifiedCounter": 0,
+			"__v": 0
+		},
+		{
+			"title": "Дубль Snakeskin",
+			"author": "habrahabr",
+			"text": "Язык описания шаблонов Snakeskin",
+			"_id": "7e371d000000000000000016",
+			"invisible": false,
+			"createdAt": "2016-05-24T19:25:57.603Z",
+			"modifiedAt": "2016-05-24T19:25:57.603Z",
+			"modifiedCounter": 0,
+			"__v": 0
+		},
+		{
+			"title": "Дубль JavaScript",
+			"author": "habrahabr",
+			"text": "JavaScript-only: гомогенная архитектура веб-проектов",
+			"_id": "7e371d000000000000000017",
+			"invisible": false,
+			"createdAt": "2016-05-24T16:48:37.133Z",
+			"modifiedAt": "2016-05-24T16:48:37.133Z",
+			"modifiedCounter": 0,
+			"__v": 0
+		},
+		{
+			"title": "Дубль jQuery",
+			"author": "habrahabr",
+			"text": "Релиз jQuery 3.0 Release Candidate",
+			"_id": "7e371d000000000000000018",
+			"invisible": false,
+			"createdAt": "2016-05-23T16:30:25.889Z",
+			"modifiedAt": "2016-05-23T16:30:25.889Z",
+			"modifiedCounter": 0,
+			"__v": 0
+		},
+		{
+			"title": "Дубль IT-KOT",
+			"author": "vk",
+			"text": "В Киевском метро хакеры взломали телевизоры в вагонах и разместили на них снимки котов",
+			"_id": "7e371d000000000000000019",
+			"invisible": false,
+			"createdAt": "2016-05-28T20:45:55.703Z",
+			"modifiedAt": "2016-05-28T20:45:55.703Z",
+			"modifiedCounter": 0,
+			"__v": 0
+		},
+		{
+			"title": "Дубль Windows Anniversary",
+			"author": "yandex",
+			"text": "Стал известен номер, под которым будет распространяться обновление Redstone, официально именуемое Windows Anniversary Update. Близкие к Microsoft источники подтверждают, что это, как и предполагалось, будет версия 1607, в которой первые две цифры обозначают год выпуска, а вторые две – месяц.",
+			"_id": "7e371d000000000000000020",
+			"invisible": false,
+			"createdAt": "2016-05-29T16:20:38.890Z",
+			"modifiedAt": "2016-05-29T16:20:38.890Z",
+			"modifiedCounter": 0,
+			"__v": 0
+		}
+	]
+}

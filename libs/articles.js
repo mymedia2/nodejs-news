@@ -1,4 +1,5 @@
 var db = require("./db");
+var io = require("./io");
 
 export async function list(ctx) {
 	ctx
@@ -37,6 +38,7 @@ export async function post(ctx) {
 	var result = await article.save();
 	ctx.status = 201;
 	ctx.body = result.id;
+	io.broadcast({ event: "new", article: result });
 }
 
 export async function get(ctx) {
@@ -71,6 +73,7 @@ export async function update(ctx) {
 	}
 	ctx.assert(ctx.body, 404);
 	Object.assign(ctx.body, updater);
+	io.broadcast({ event: "update", article: ctx.body });
 }
 
 export async function delete_(ctx) {
@@ -85,4 +88,5 @@ export async function delete_(ctx) {
 	}
 	ctx.assert(result, 404);
 	ctx.status = 200;
+	io.broadcast({ event: "remove", article: { id: result.id } });
 }

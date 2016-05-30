@@ -1,3 +1,5 @@
+var http = require("http");
+var ws = require("ws");
 var Koa = require("koa");
 var Router = require("koa-router");
 var bodyParser = require("koa-bodyparser");
@@ -7,6 +9,7 @@ var articles = require("./articles");
 var auth = require("./auth");
 var config = require("./config");
 var hacks = require("./hacks");
+var io = require("./io");
 
 var router = new Router()
 	.get("/articles", articles.list)
@@ -26,4 +29,5 @@ var app = new Koa()
 ;
 
 hacks.fixKoaContext(app.context);	// TODO: make it as midleware
-app.listen(config.get("port"));
+var httpServer = http.createServer(app.callback()).listen(config.get("port"));
+io.socketServer.obj = new ws.Server({ server: httpServer });

@@ -6,6 +6,7 @@ mongoose.connect(config.get("db:uri"));
 var User = new mongoose.Schema({
 	login: { type: String, required: true, unique: true },
 	passw: { type: String, required: true },
+	salt: { type: String, required: true },
 	token: String
 });
 export var UserModel = mongoose.model("User", User);

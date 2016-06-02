@@ -1,1 +1,1 @@
-require("./build/news")
+require("./build/libs/news")
